@@ -1,0 +1,37 @@
+factorial(N){
+	i := 1;
+	r := 1;
+	while(i < N){
+		i := i + 1;
+		r := r * i;
+	}
+	factorial := r;
+}
+pow(A, N){
+	i := 0;
+	r := 1;
+	while(i < N){
+		r := r * A;
+		i := i + 1;
+	}
+	pow := r;
+}
+sin(A){
+	pi := 3.141593;
+	i := 3;
+	Ar := A * pi / 180;
+	r := Ar;
+	Znak := -1;
+	while(i < 8){
+		r := r + (pow(Ar, i) / factorial(i)) * Znak;
+		Znak := -1 * Znak;
+		i := i + 2;
+	}
+	sin := r;
+}
+
+PRINT("Sin(90) = 1; Sin(90)=" + sin(90));
+PRINT("Sin(60) ~ 0,866; Sin(60)~" + sin(60));
+PRINT("Sin(45) ~ 0,707; Sin(45)~" + sin(45));
+PRINT("Sin(30) = 0,5; Sin(30)=" + sin(30));
+PRINT("Sin(0) = 0; Sin(0)=" + sin(0));
