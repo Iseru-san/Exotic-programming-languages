@@ -1,3 +1,24 @@
+decLength := 3; // Точность интерпретатора
+
+abs(X){
+	if(X < 0){
+		abs := -X;
+	}else{
+		abs := X;
+	}
+}
+sqr(X){
+	sqr := X * X;
+}
+sqrt(X){
+	i := 0;
+	r := X / 2;
+	while(i < 6){
+		r := (r + X / r) / 2;
+		i := i + 1;
+	}
+	sqrt := r;
+}
 factorial(N){
 	i := 1;
 	r := 1;
@@ -16,10 +37,28 @@ pow(A, N){
 	}
 	pow := r;
 }
+trunc(X){
+	N := pow(10, decLength);
+	trunc := X / N * N;
+}
+mod(N, M){
+	if(N < M){
+		mod := N;
+	}else{
+		x := trunc(N / M);
+		a := N - M * x;
+		Modul := a;
+	}
+}
 sin(A){
 	pi := 3.141593;
 	i := 3;
-	Ar := A * pi / 180;
+	if(A < 0){
+		Ar := -mod(abs(A), 360);
+	}else{
+		Ar := mod(A, 360);
+	}
+	Ar := Ar * pi / 180;
 	r := Ar;
 	Znak := -1;
 	while(i < 8){
@@ -29,9 +68,12 @@ sin(A){
 	}
 	sin := r;
 }
+cos(A){
+	cos := sqrt(1 - sqr(sin(A)));
+}
 
-PRINT("Sin(90) = 1; Sin(90)=" + sin(90));
-PRINT("Sin(60) ~ 0,866; Sin(60)~" + sin(60));
-PRINT("Sin(45) ~ 0,707; Sin(45)~" + sin(45));
-PRINT("Sin(30) = 0,5; Sin(30)=" + sin(30));
-PRINT("Sin(0) = 0; Sin(0)=" + sin(0));
+i := 0;
+while(i < 361){
+	PRINT("Sin(" + i + ")=" + sin(i) + "; Cos(" + i + ")=" + cos(i));
+	i := i + 20;
+}
