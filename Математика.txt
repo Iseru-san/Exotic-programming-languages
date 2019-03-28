@@ -47,7 +47,7 @@ mod(N, M){
 	}else{
 		x := trunc(N / M);
 		a := N - M * x;
-		Modul := a;
+		mod := a;
 	}
 }
 sin(A){
