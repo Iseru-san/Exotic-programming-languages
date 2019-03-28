@@ -1,8 +1,9 @@
-decLength := 3; // Точность интерпретатора
+decLength(){}
+decLength := 3;
 
 abs(X){
 	if(X < 0){
-		abs := -X;
+		abs := -1 * X;
 	}else{
 		abs := X;
 	}
@@ -54,7 +55,7 @@ sin(A){
 	pi := 3.141593;
 	i := 3;
 	if(A < 0){
-		Ar := -mod(abs(A), 360);
+		Ar := -1 * mod(abs(A), 360);
 	}else{
 		Ar := mod(A, 360);
 	}
@@ -73,7 +74,4 @@ cos(A){
 }
 
 i := 0;
-while(i < 361){
-	PRINT("Sin(" + i + ")=" + sin(i) + "; Cos(" + i + ")=" + cos(i));
-	i := i + 20;
-}
+PRINT("Sin(" + i + ")=" + sin(i) + "; Cos(" + i + ")=" + cos(i));
